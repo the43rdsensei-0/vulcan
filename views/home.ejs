@@ -292,11 +292,26 @@
       </div>
 
       <div class="right">
+        <a href="/storia" id="storiaLink">Storia</a>
         <p>© 2022 Vulcan Materials Company</p>
       </div>
     </div>
   </footer>
 
+  <script>
+    document.getElementById('storiaLink').addEventListener('click', function(event) {
+      event.preventDefault(); 
+      fetch('/storia') 
+        .then(response => {
+          if(!response.ok) throw new Error('something went wrong :(')
+
+          console.log('working!', response);
+        })
+        .catch(error => {
+          console.log(error.message);
+        });
+    });
+  </script>
   <script src="app.js"></script>
 </body>
 </html>
